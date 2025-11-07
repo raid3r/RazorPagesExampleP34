@@ -1,9 +1,21 @@
+using RazorPagesExampleP34.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+if (true)
+{
+    builder.Services.AddScoped<IPersonDataProvider, FilePersonDataProvider>();
+} else
+{
+    builder.Services.AddScoped<IPersonDataProvider, PersonDataProvider>();
+}
 
-var app = builder.Build();
+
+
+
+    var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -14,7 +26,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles();  //  /css/site.css 
 
 app.UseRouting();
 

@@ -1,0 +1,38 @@
+﻿@page
+@model RazorPagesExampleP34.Pages.AboutMeModel
+@{
+    var person = Model.Person;
+
+    ViewData["Title"] = $"{person.FirstName} {person.LastName}";
+
+    
+    
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <p>
+        Hello! My name is @person.FirstName @person.LastName, and I am a @person.Profession.
+    </p>
+    <p>
+        My birthday: @person.BirthDate.ToString("dd.MM.yyyy")
+    <p>
+        My skills:
+    </p>
+    <ul>
+        @foreach (var skill in person.Skills)
+        {
+            <li>
+                @skill.Title: 
+                <div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @skill.Proficiency%" aria-valuenow="@skill.Proficiency" aria-valuemin="0" aria-valuemax="100">
+                            @skill.Proficiency %
+                        </div>
+                    </div>
+                </div>
+                </li>
+        }
+    </ul>
+</div>
