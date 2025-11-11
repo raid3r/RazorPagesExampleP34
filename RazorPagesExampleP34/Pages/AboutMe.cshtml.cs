@@ -11,7 +11,7 @@ public class AboutMeModel : PageModel
     public AboutMeModel(IPersonDataProvider provider)
     {
         _provider = provider;
-        Person = _provider.GetPerson();
+        Person = _provider.GetPersonById(1);
     }
 
     public Person Person { get; set; }

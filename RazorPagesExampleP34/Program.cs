@@ -4,18 +4,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-if (true)
-{
-    builder.Services.AddScoped<IPersonDataProvider, FilePersonDataProvider>();
-} else
-{
-    builder.Services.AddScoped<IPersonDataProvider, PersonDataProvider>();
-}
+
+//builder.Services.AddScoped<IPersonDataProvider, FilePersonDataProvider>();
+
+// Dependency Injection (DI) - Реєстрація служби з різними життєвими циклами
+// Singleton - один екземпляр на весь час життя додатку
+builder.Services.AddSingleton<IPersonDataProvider, PersonDataProvider>();
+// Scoped - один екземпляр на кожен запит
+//builder.Services.AddScoped<IPersonDataProvider, PersonDataProvider>();
+// Transient - новий екземпляр при кожному запиті
+//builder.Services.AddTransient<IPersonDataProvider, PersonDataProvider>();
+
+
+// Постійна частина яка слухає з'єднання
+// Під кожний запит створюється окремий контекст (HttpContext) та поток для обробки запиту
 
 
 
-
-    var app = builder.Build();
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

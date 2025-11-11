@@ -2,5 +2,9 @@
 
 public interface IPersonDataProvider
 {
-    public Person GetPerson();
+    public List<Person> GetAllPeople();
+
+    public Person GetPersonById(int id);
+
+    public void SaveChanges();
 }

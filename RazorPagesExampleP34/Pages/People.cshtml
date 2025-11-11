@@ -1,0 +1,36 @@
+﻿@page
+@model RazorPagesExampleP34.Pages.PeopleModel
+@{
+    ViewData["Title"] = "People";
+    var peoples = Model.People;
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Date</th>
+            <th>Profession</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in peoples)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.BirthDate.ToString("dd.MM.yyyy")</td>
+                <td>@person.Profession</td>
+                <td>
+                    <a class="btn btn-info" asp-page="/PersonView" asp-route-id="@person.Id">View</a>
+                    <a class="btn btn-warning" asp-page="/PersonEdit" asp-route-id="@person.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

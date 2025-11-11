@@ -1,11 +1,9 @@
 ﻿@page
-@model RazorPagesExampleP34.Pages.AboutMeModel
+@model RazorPagesExampleP34.Pages.PersonViewModel
 @{
     var person = Model.Person;
 
     ViewData["Title"] = $"{person.FirstName} {person.LastName}";
-       
-    
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -23,7 +21,7 @@
         @foreach (var skill in person.Skills)
         {
             <li>
-                @skill.Title: 
+                @skill.Title:
                 <div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @skill.Proficiency%" aria-valuenow="@skill.Proficiency" aria-valuemin="0" aria-valuemax="100">
@@ -31,7 +29,9 @@
                         </div>
                     </div>
                 </div>
-                </li>
+            </li>
         }
     </ul>
 </div>
+
+<a class="btn btn-primary" asp-page="/People">Back to People List</a>
