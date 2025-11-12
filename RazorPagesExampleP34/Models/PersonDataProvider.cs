@@ -1,6 +1,6 @@
 ﻿namespace RazorPagesExampleP34.Models;
 
-public class PersonDataProvider: IPersonDataProvider
+public class PersonDataProvider : IPersonDataProvider
 {
     private readonly List<Person> people = [
         new Person
@@ -33,6 +33,25 @@ public class PersonDataProvider: IPersonDataProvider
         }
         ];
 
+    public void Add(Person person)
+    {
+        if (people.Any())
+        {
+            person.Id = people.Max(p => p.Id) + 1;
+        }
+        else
+        {
+            person.Id = 1;
+        }
+
+        people.Add(person);
+    }
+
+    public void DeletePerson(int id)
+    {
+        var person = people.First(p => p.Id == id);
+        people.Remove(person);
+    }
 
     public List<Person> GetAllPeople()
     {

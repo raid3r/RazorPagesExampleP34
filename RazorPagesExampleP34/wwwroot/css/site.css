@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.button-container {
+    display: flex;
+    gap: 5px;
+}

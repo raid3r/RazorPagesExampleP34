@@ -12,4 +12,13 @@ public class PeopleModel(IPersonDataProvider provider) : PageModel
     {
 
     }
+
+    // Delete
+    public IActionResult OnPost(int id)
+    {
+        provider.DeletePerson(id);
+        provider.SaveChanges();
+
+        return RedirectToAction("Page");
+    }
 }

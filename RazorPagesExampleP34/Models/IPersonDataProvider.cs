@@ -6,5 +6,9 @@ public interface IPersonDataProvider
 
     public Person GetPersonById(int id);
 
+    public void DeletePerson(int id);
+
+    public void Add(Person person);
+
     public void SaveChanges();
 }

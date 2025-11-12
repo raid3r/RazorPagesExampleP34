@@ -1,8 +1,8 @@
 ﻿@page
-@model RazorPagesExampleP34.Pages.PersonEditModel
+@model RazorPagesExampleP34.Pages.PersonCreateModel
 @{
     var person = Model.Person;
-    ViewData["Title"] = $"Edit {person.FirstName} {person.LastName}";
+    ViewData["Title"] = $"Створення";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -29,7 +29,7 @@
         <input asp-for="Person.Profession" class="form-control" />
         <span asp-validation-for="Person.Profession" class="text-danger"></span>
     </div>
-    
-    <button type="submit" class="btn btn-success">Save</button>
+
+    <button type="submit" class="btn btn-success">Зберігти</button>
     <a class="btn btn-primary" asp-page="/People">Back to People List</a>
 </form>
