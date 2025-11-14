@@ -5,11 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-//builder.Services.AddScoped<IPersonDataProvider, FilePersonDataProvider>();
+builder.Services.AddScoped<IPersonDataProvider, FilePersonDataProvider>();
 
 // Dependency Injection (DI) - Реєстрація служби з різними життєвими циклами
 // Singleton - один екземпляр на весь час життя додатку
-builder.Services.AddSingleton<IPersonDataProvider, PersonDataProvider>();
+//builder.Services.AddSingleton<IPersonDataProvider, PersonDataProvider>();
 // Scoped - один екземпляр на кожен запит
 //builder.Services.AddScoped<IPersonDataProvider, PersonDataProvider>();
 // Transient - новий екземпляр при кожному запиті
@@ -41,3 +41,18 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+
+/*
+ * Додати можливість додавання, редагування та видалення навичок для кожної особи.
+ * 
+ * Сторінка список навичок для особи з кнопкою "Додати навичку", 
+ * "Редагувати" та "Видалити" поруч з кожною навичкою.
+ * 
+ * Сторінка створення навички з полями "Назва навички" та "Рівень володіння" (від 0 до 100).
+ * 
+ * Сторінка редагування навички з можливістю змінити назву та рівень володіння.
+ * 
+ * 
+ * 
+ */ 

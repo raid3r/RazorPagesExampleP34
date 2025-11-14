@@ -1,0 +1,21 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Vasyl",
+    "LastName": "Kovalov",
+    "Profession": "Web Developer",
+    "BirthDate": "2005-05-05T00:00:00",
+    "Skills": [
+      {
+        "Id": 2,
+        "Title": "ASP.NET",
+        "Proficiency": 50
+      },
+      {
+        "Id": 3,
+        "Title": "HTML",
+        "Proficiency": 86
+      }
+    ]
+  }
+]
